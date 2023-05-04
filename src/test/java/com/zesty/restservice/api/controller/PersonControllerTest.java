@@ -51,7 +51,7 @@ public class PersonControllerTest {
         Person person = new Person(1L, "John", "Doe", 32);
         val output = objectMapper.writeValueAsString(person);
         mockMvc.perform(get(url)
-            .contentType(APPLICATION_JSON_VALUE))
+                .contentType(APPLICATION_JSON_VALUE))
             .andExpect(status().isOk())
             .andExpect(content().contentType(APPLICATION_JSON_VALUE))
             .andExpect(content().json(output));

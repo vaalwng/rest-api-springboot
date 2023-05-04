@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
-
 import com.zesty.restservice.api.beans.Person;
+
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController @Slf4j
 @RequestMapping(path = "/person", produces = APPLICATION_JSON_VALUE)
@@ -32,9 +32,10 @@ public class PersonController {
         @RequestParam(value = "lastName", defaultValue = "Doe") final String lastName,
         @RequestParam(value = "age", defaultValue = "32") final int age) {
 
-        log.info("Creating Person({}, {}, {})", firstName, lastName, age);
+        Person person = personService.generate(firstName, lastName, age);
+        log.info("Creating Person({}, {}, {}, {})", person.getId(), firstName, lastName, age);
 
-        return new ResponseEntity<>(personService.generate(firstName, lastName, age), HttpStatus.OK);
+        return new ResponseEntity<>(person, HttpStatus.OK);
     }
 
 }
