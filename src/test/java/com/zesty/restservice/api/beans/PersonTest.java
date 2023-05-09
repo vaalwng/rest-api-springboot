@@ -1,10 +1,13 @@
 package com.zesty.restservice.api.beans;
 
-import com.zesty.restservice.TestUtils.TestUtils;
 import lombok.val;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static com.zesty.restservice.TestUtils.TestUtils.verifyToString;
+import static com.zesty.restservice.TestUtils.TestUtils.verifyEqualsAndHashCode;
+import static com.zesty.restservice.TestUtils.TestUtils.verifySerdes;
 
 import java.io.IOException;
 
@@ -24,17 +27,17 @@ public class PersonTest {
 
     @Test @DisplayName("toString")
     void string() {
-        TestUtils.verifyToString("Person(id=1, firstName=John, lastName=Doe, age=32)", createPerson());
+        verifyToString("Person(id=1, firstName=John, lastName=Doe, age=32)", createPerson());
     }
 
     @Test @DisplayName("equals and hash")
     void equalsAndHash() {
-        TestUtils.verifyEqualsAndHashCode(createPerson(), createPerson());
+        verifyEqualsAndHashCode(createPerson(), createPerson());
     }
 
     @Test @DisplayName("serdes")
     void serdes() throws IOException {
-        TestUtils.verifySerdes(createPerson(),
+        verifySerdes(createPerson(),
             "{\"id\":1,\"firstName\":\"John\",\"lastName\":\"Doe\",\"age\":32}");
     }
 
