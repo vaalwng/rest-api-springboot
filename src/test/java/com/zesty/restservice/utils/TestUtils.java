@@ -1,4 +1,4 @@
-package com.zesty.restservice.Utils;
+package com.zesty.restservice.utils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
@@ -6,7 +6,7 @@ import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Assertions;
 
-import static com.zesty.restservice.Utils.ResourceUtils.resourceToString;
+import static com.zesty.restservice.utils.ResourceUtils.resourceToString;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public interface TestUtils {

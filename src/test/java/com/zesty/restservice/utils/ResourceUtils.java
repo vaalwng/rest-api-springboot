@@ -1,4 +1,4 @@
-package com.zesty.restservice.Utils;
+package com.zesty.restservice.utils;
 
 import java.io.IOException;
 import java.io.InputStream;

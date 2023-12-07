@@ -6,10 +6,10 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static com.zesty.restservice.Utils.TestUtils.verifyToString;
-import static com.zesty.restservice.Utils.TestUtils.verifyEqualsAndHashCode;
-import static com.zesty.restservice.Utils.TestUtils.verifySerdes;
-import static com.zesty.restservice.Utils.TestUtils.verifyJsonString;
+import static com.zesty.restservice.utils.TestUtils.verifyToString;
+import static com.zesty.restservice.utils.TestUtils.verifyEqualsAndHashCode;
+import static com.zesty.restservice.utils.TestUtils.verifySerdes;
+import static com.zesty.restservice.utils.TestUtils.verifyJsonString;
 
 public class PersonTest {
 
