@@ -1,4 +1,4 @@
-package com.zesty.restservice.TestUtils;
+package com.zesty.restservice.Utils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
@@ -6,7 +6,13 @@ import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Assertions;
 
+import static com.zesty.restservice.Utils.ResourceUtils.resourceToString;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public interface TestUtils {
+
+    ObjectMapper objectMapper = new ObjectMapper();
+
     static void verifySerdes(ObjectMapper mapper, Object object, String json) throws IOException {
         String serialized = mapper.writeValueAsString(object);
         Assertions.assertEquals(json, serialized);
@@ -48,4 +54,14 @@ public interface TestUtils {
     static void verifyToString(String expected, Object obj) {
         Assertions.assertEquals(expected, obj.toString());
     }
+
+    static void verifyJsonString(String filePath, Object actual) throws IOException {
+        assertEquals(
+            objectMapper.writeValueAsString(actual),
+            objectMapper.writeValueAsString(
+                objectMapper.readTree(resourceToString(filePath))
+            )
+        );
+    }
+
 }
